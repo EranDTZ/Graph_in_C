@@ -13,6 +13,7 @@ int main()
         if (c == 'A')
         {
             build_graph_cmd(head);
+            
         }
         if (c == 'B')
         {
@@ -22,6 +23,7 @@ int main()
         {
             scanf("%c", &c);
         }
+        printGraph_cmd(*head);
     }
     return 0;
 }

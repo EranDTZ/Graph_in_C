@@ -91,7 +91,23 @@ void insert_node_cmd(pnode *head)
 //     }
 // }
 
-// void printGraph_cmd(pnode head) // for self debug
+void printGraph_cmd(pnode head)
+{
+pnode h = head;
+while (h != NULL)
+{
+    printf("node: %d",h->node_num);
+    pedge e = h->edges;
+    while (e != NULL)
+    {
+        printf("edge: ,dest- %d ,w- %d", e->endpoint->node_num,e->weight);
+        printf("\n");
+    }
+}
+printf("\n");
+} // for self debug
+
+
 void deleteGraph_cmd(pnode *head)
 {
     pnode h = *head;
@@ -112,4 +128,3 @@ void deleteGraph_cmd(pnode *head)
 }
 // void shortsPath_cmd(pnode head);
 // void TSP_cmd(pnode head);
-// CHECK
