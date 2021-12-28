@@ -1,0 +1,60 @@
+void build_graph_cmd(pnode *head)
+{
+    deleteGraph_cmd(head);
+    int v;
+    scanf("%d", v);
+    *haed = NULL;
+    for (int i = 0; i < v; i++)
+    {
+        char n;
+        scanf("%c", &n);
+        if (n = 'n')
+        {
+            insert_node_cmd(head);
+        }
+        else return;
+    }
+}
+
+void insert_node_cmd(pnode *head,int src)
+{
+    int src;
+    scanf("%d", &src);
+    pnode n = *head;
+    do
+    {
+        n = (*pnode)malloc(sizeof(node));
+    } while (n == NULL);
+    n->node_num = src;
+    // while?
+    int dest;
+    scanf("%d",&dest)
+    n->edges->endpoint = dest;
+    int w;
+    scanf("%d",&w)
+    n->edges->weight = w;
+    
+    // pnode haed = (*pnode)malloc(sizeof(node));
+}
+
+void delete_node_cmd(pnode *head){
+    pnode h = *head;//not good need to fix cus we alredy getting pointer tp head
+    pnode temp = (*pnode)malloc(sizeof(node));
+    pnode next = (*pnode)malloc(sizeof(node));
+    while (n->next!=null)
+    {
+        if (n->next==h)
+        {
+            while (h->next->edges->next != NULL)
+            {
+                free(h->next->edges->endpoint)
+                h->next->edges->weight = NULL;
+                h->next->edges = h->next->edges->next;
+            }
+            temp = h->next->next;
+            h->next = temp;
+        }
+        
+    }
+    
+}
