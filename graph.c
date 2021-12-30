@@ -57,6 +57,7 @@ void insert_node_cmd2(pnode *head)
 {
     int src = -1;
     scanf("%d", &src);
+    pnode n = (*head);
     pnode s = (*head);
     pnode d = (*head);
     pedge e = NULL;
@@ -64,7 +65,7 @@ void insert_node_cmd2(pnode *head)
     s = getnode(s, src);
     if (s == NULL)
     {
-        s = (pnode)malloc(sizeof(node));
+        s = (pnode)(malloc(sizeof(node)));
         s->node_num = src;
     }
     int dest = -1;
@@ -75,10 +76,25 @@ void insert_node_cmd2(pnode *head)
     d = getnode(d, dest);
     if (d == NULL)
     {
-        d = (pnode)malloc(sizeof(node));
+        d = (pnode)(malloc(sizeof(node)));
         d->node_num = dest;
     }
-    e = getedge(
+    int w = -1;
+    scanf("%d",&w);
+    e = getedge(s,src,dest,w);
+    if (e == NULL)
+    {
+        e = (pedge)malloc(sizeof(edge)));
+        while (s->edges != NULL)
+        {
+            if(s->edges->next == NULL){
+                s->edges->next->endpoint = d;
+                s->edges->next->weight = w;
+            }
+        }
+        
+    }
+    
 
 }
 
