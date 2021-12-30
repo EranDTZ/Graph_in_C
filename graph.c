@@ -20,12 +20,12 @@ void build_graph_cmd(pnode *head)
     }
 }
 
-pnode getnode(pnode *head,int id)
+pnode getnode(pnode *head, int id)
 {
     pnode n = (*head);
     while (n != NULL)
     {
-        if (n->node_num==id)
+        if (n->node_num == id)
         {
             return n;
         }
@@ -34,21 +34,53 @@ pnode getnode(pnode *head,int id)
     return NULL;
 }
 
-pedge getedge (pnode *head,int id,int w)
+pedge getedge(pnode *head,int src, int id, int w)
 {
     pnode n = (*head);
     pedge e = n->edges;
-    while (e!=NULL)
+    while(n!=NULL)
     {
-        if (e->endpoint->node_num==id&&e->weight==w)
+        while (e != NULL)
         {
-            return e;
+            if (e->endpoint->node_num == id && e->weight == w)
+            {
+                return e;
+            }
+            e = e->next;
         }
-        e = e->next;
+        e = n->next->edges;
     }
     return NULL;
 }
 
+void insert_node_cmd2(pnode *head)
+{
+    int src = -1;
+    scanf("%d", &src);
+    pnode s = (*head);
+    pnode d = (*head);
+    pedge e = NULL;
+    int flag = 1;
+    s = getnode(s, src);
+    if (s == NULL)
+    {
+        s = (pnode)malloc(sizeof(node));
+        s->node_num = src;
+    }
+    int dest = -1;
+    if (scanf("%d", &dest) == 0)
+    {
+        return;
+    }
+    d = getnode(d, dest);
+    if (d == NULL)
+    {
+        d = (pnode)malloc(sizeof(node));
+        d->node_num = dest;
+    }
+    e = getedge(
+
+}
 
 void insert_node_cmd(pnode *head)
 {
