@@ -9,14 +9,15 @@ void build_graph_cmd(pnode *head)
     scanf("%d", &v);
     printf("%d", v);
     char n;
+    scanf("%c", &n);
     for (int i = 0; i < v; i++)
     {
-        scanf("%c", &n);
         if (n == 'n')
         {
             printf("%c", n);
             insert_node_cmd(head);
         }
+        scanf("%c", &n);
     }
 }
 
@@ -55,6 +56,7 @@ pedge getedge(pnode *head,int src, int id, int w)
 
 void insert_node_cmd2(pnode *head)
 {
+    printf("hi")
     int src = -1;
     scanf("%d", &src);
     pnode n = (*head);
@@ -67,7 +69,16 @@ void insert_node_cmd2(pnode *head)
     {
         s = (pnode)(malloc(sizeof(node)));
         s->node_num = src;
+        while (n!=NULL)
+        {
+            if (n->next==NULL)
+            {
+                n->next = s;
+            }
+           n = n->next; 
+        }
     }
+    n = (*head);
     int dest = -1;
     if (scanf("%d", &dest) == 0)
     {
@@ -78,24 +89,33 @@ void insert_node_cmd2(pnode *head)
     {
         d = (pnode)(malloc(sizeof(node)));
         d->node_num = dest;
+        while (n!=NULL)
+        {
+            if (n->next==NULL)
+            {
+                n->next = d;
+            }
+            n = n->next;
+        }
     }
     int w = -1;
     scanf("%d",&w);
     e = getedge(s,src,dest,w);
+    n = (*head);
     if (e == NULL)
     {
-        e = (pedge)malloc(sizeof(edge)));
+        e = (pedge)(malloc(sizeof(edge)));
         while (s->edges != NULL)
         {
             if(s->edges->next == NULL){
                 s->edges->next->endpoint = d;
                 s->edges->next->weight = w;
             }
+            s->edges = s->edges->next;
         }
-        
     }
-    
-
+    free(s);
+    free(d);
 }
 
 void insert_node_cmd(pnode *head)
