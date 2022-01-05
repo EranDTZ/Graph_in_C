@@ -56,15 +56,17 @@ pedge getedge(pnode *head,int src, int id, int w)
 
 void insert_node_cmd2(pnode *head)
 {
-    printf("hi")
+    printf("hi");
     int src = -1;
     scanf("%d", &src);
     pnode n = (*head);
+    pnode temp = (*head);
     pnode s = (*head);
     pnode d = (*head);
     pedge e = NULL;
     int flag = 1;
-    s = getnode(s, src);
+    s = getnode(temp, src);
+    temp = (*head);
     if (s == NULL)
     {
         s = (pnode)(malloc(sizeof(node)));
@@ -84,7 +86,8 @@ void insert_node_cmd2(pnode *head)
     {
         return;
     }
-    d = getnode(d, dest);
+    d = getnode(temp, dest);
+    temp = (*head);
     if (d == NULL)
     {
         d = (pnode)(malloc(sizeof(node)));
@@ -114,8 +117,6 @@ void insert_node_cmd2(pnode *head)
             s->edges = s->edges->next;
         }
     }
-    free(s);
-    free(d);
 }
 
 void insert_node_cmd(pnode *head)

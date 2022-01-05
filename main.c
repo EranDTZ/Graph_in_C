@@ -6,7 +6,7 @@ int main()
 {
     pnode temp = (pnode)(malloc(sizeof(node)));
     pnode *head = &temp;
-    build_graph_cmd(head);
+    insert_node_cmd2(head);
     // char c;
     // scanf("%c", &c);
     // insert_node_cmd(head);
